@@ -14,6 +14,9 @@
     <header>
       <% if user_signed_in? %> <!--deviseの機能でログイン済かログインしていないかを判断し下記を実行-->
         <li>
+        　<%= link_to '投稿フォーム', new_post_image_path %> <!--なんで’’なのか-->
+        </li>
+        <li>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </li>
       <% else %>
