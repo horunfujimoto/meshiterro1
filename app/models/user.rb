@@ -4,4 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 #各機能名:database_authenticatable（パスワードの正確性を検証）:registerable（ユーザ登録や編集、削除）:recoverable（パスワードをリセット）:rememberable（ログイン情報を保存）:validatable（email のフォーマットなどのバリデーション）
+
+  has_many :post_images, dependent: :destroy #Userモデルに対してPostImageモデルが1:Nになるよう関連付け
+
 end
