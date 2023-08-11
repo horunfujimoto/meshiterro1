@@ -19,6 +19,13 @@ class PostImagesController < ApplicationController
     @post_image = PostImage.find(params[:id])
   end
 
+  def destroy
+    @post_image = PostImage.find(params[:id])
+    @post_image.user_id = current_user.id #user_id＝投稿者である定義実施のためにもインスタンス変数の変更する-->
+    @post_image.destroy
+    redirect_to post_images_path
+  end
+
   # 投稿データのストロングパラメータ
   private
 
