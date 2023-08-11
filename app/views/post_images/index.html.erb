@@ -1,6 +1,10 @@
 <% @post_images.each do |post_image| %>
   <div>
-    <%= image_tag post_image.get_image %> <!--models/post_image.rb内のget_image-->
+    
+    <%= link_to post_image_path(post_image.id) do %> <!--post_image_path(post_image.id)のリンク先URLを指定-->
+      <%= image_tag post_image.get_image %> <!--link_toでは、doからendの間が、aタグで囲まれた状態のためimage_tag(画像)事態がリンク先-->
+    <% end %>
+    
     <p>投稿ユーザー画像：<%= image_tag 'sample-author1.jpg' %></p> <!--仮にsample-author1.jpgとしている-->
     <p>ショップ名：<%= post_image.shop_name %></p>
     <p>説明：<%= post_image.caption %></p>
