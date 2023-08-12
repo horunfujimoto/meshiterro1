@@ -1,8 +1,9 @@
 class PostImage < ApplicationRecord
   #ActiveStorage を使って画像を持たせる
   has_one_attached :image
-  #PostImageモデルに対して、Userモデルとの関係性を追加
-  belongs_to :user
+  
+  belongs_to :user#PostImageモデルに対して、Userモデルとの関係性を追加
+  has_many :post_comments, dependent: :destroy #PostImageモデルに、PostCommentモデルとの関連付け
 
   def get_image #アクションとは少し違い、特定の処理を名前で呼び出すことができる4-11にて解説
     unless image.attached?
