@@ -15,7 +15,7 @@ class PostImagesController < ApplicationController
   end
 
   def index
-    @post_images = PostImage.all
+    @post_images = PostImage.page(params[:page]) #pageメソッドは、kaminarigemをインストールしたことで使用可能になったメソッド
   end
 
   def show
