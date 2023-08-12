@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  #ログインしてない状態でトップページ以外の画面にアクセスしても、ログイン画面へリダイレクトする
+  before_action :authenticate_user!, except: [:top]
   #nameをデータとして保存する許可を与えるコード
   before_action :configure_permitted_parameters, if: :devise_controller?
 
