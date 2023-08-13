@@ -5,7 +5,7 @@ class PostImage < ApplicationRecord
   belongs_to :user#PostImageモデルに対して、Userモデルとの関係性を追加
   has_many :post_comments, dependent: :destroy #PostImageモデルに、PostCommentモデルとの関連付け
   has_many :favorites, dependent: :destroy
-  
+
   validates :shop_name, presence: true #shop_nameが存在しているかを確認するバリデーション
   validates :image, presence: true #imageが存在しているかを確認するバリデーション
 
